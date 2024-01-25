@@ -14,6 +14,7 @@ typedef struct
     int length;             /* 线性表当前长度 */
 }SqList;
 
+// 111
 Status GetElem(SqList L,int i,ElemType *e)
 {
     if(L.length==0 || i<1 || i>L.length)
