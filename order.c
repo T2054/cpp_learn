@@ -41,6 +41,6 @@ void PostOrderTraverse(BiTree T)
 }
 
 int main(){
-    printf("hahaha");
+    printf("hahahaaa");
     return 0;
 }
