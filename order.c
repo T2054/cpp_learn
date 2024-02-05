@@ -40,3 +40,7 @@ void PostOrderTraverse(BiTree T)
     printf("%c", T->data);
 }
 
+int main(){
+    printf("hahaha");
+    return 0;
+}
