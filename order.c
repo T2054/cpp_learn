@@ -62,7 +62,7 @@ void CreateBiTree(BiTree *T)
     }
 }
 
-int main()
+int main55()
 {
     BiTree T = NULL;
     printf("请输入二叉树的先序序列（使用'#'表示空节点）：\n");

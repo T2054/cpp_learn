@@ -90,7 +90,7 @@ void inorderTraversal(TreeNode *root)
     }
 }
 
-int main()
+int main10()
 {
     // 创建示例二叉树
     TreeNode *root = createNode('A');

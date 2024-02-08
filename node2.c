@@ -94,9 +94,9 @@ void updateNode(struct Node **head,int data,int data1){
 
     else{
         current->data = data1;
-    }
+    } 
 }
-int main()
+int main57()
 {
     struct Node *head = NULL;
 
