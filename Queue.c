@@ -87,7 +87,7 @@ int lengthQueue(Queue *queue)
     return (queue->rear - queue->front + MAX_SIZE) % MAX_SIZE;
 }
 
-int main12()
+int main(void)
 {
     Queue queue;
     initializeQueue(&queue);
