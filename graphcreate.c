@@ -41,8 +41,7 @@ void CreateALGraph(GraphAdjList *G)
     scanf("%d,%d", &G->numNodes, &G->numEdges);
     for (i = 0; i < G->numNodes; i++)
     {
-        printf("输入顶点的数据:\n");       // 提示用户输入顶点数据
-        scanf(" %c", &G->adjList[i].data); // 使用 %c 读取单个字符，前面加空格用于跳过空白字符
+        scanf(" %c", &G->adjList[i].data);
         G->adjList[i].firstedge = NULL;
     }
 
@@ -62,31 +61,10 @@ void CreateALGraph(GraphAdjList *G)
     }
 }
 
-void PrintGraph(GraphAdjList G)
-{
-    int i;
-    EdgeNode *p;
-    for (i = 0; i < G.numNodes; i++)
-    {
-        printf("%c -> ", G.adjList[i].data);
-        p = G.adjList[i].firstedge;
-        while (p != NULL)
-        {
-            printf("%c ", G.adjList[p->adjvex].data);
-            p = p->next;
-        }
-        printf("\n");
-    }
-}
-
 int main(void)
 {
     GraphAdjList G;
     CreateALGraph(&G);
 
-    printf("邻接表表示的图:\n");
-    PrintGraph(G);
-
     return 0;
 }
-
