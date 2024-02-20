@@ -48,9 +48,10 @@ Status QueueEmpty(Queue Q)
         return FALSE;
 }
 
-Status EnQueue(Queue *Q,int e){
+Status EnQueue(Queue *Q, int e)
+{
     if ((Q->rear + 1) % MAXSIZE == Q->front)
-return ERROR;
+        return ERROR;
     Q->data[Q->rear] = e;
     Q->rear = (Q->rear + 1) % MAXSIZE;
     return OK;
@@ -58,11 +59,11 @@ return ERROR;
 
 Status DeQueue(Queue *Q, int *e)
 {
-    if (Q->front == Q->rear) 
+    if (Q->front == Q->rear)
         return ERROR;
-    *e = Q->data[Q->front];              
-    Q->front = (Q->front + 1) % MAXSIZE; 
-                                         
+    *e = Q->data[Q->front];
+    Q->front = (Q->front + 1) % MAXSIZE;
+
     return OK;
 }
 
@@ -73,7 +74,6 @@ void CreateMGraph(MGraph *G)
     G->numEdges = 15;
     G->numVertexes = 9;
 
-    /* 读入顶点信息，建立顶点表 */
     G->vexs[0] = 'A';
     G->vexs[1] = 'B';
     G->vexs[2] = 'C';
@@ -123,5 +123,67 @@ void CreateMGraph(MGraph *G)
     }
 }
 
-Boolean visted[MAXVEX];
+Boolean visited[MAXVEX];
+
+void DFS(MGraph G, int i)
+{
+    int j;
+    visited[i] = TRUE;
+    printf("%c ", G.vexs[i]);
+    for (j = 0; j < G.numVertexes; j++)
+        if (G.arc[i][j] == 1 && !visited[j])
+            DFS(G, j);
+}
+
+void DFSTraverse(MGraph G)
+{
+    int i;
+    for (i = 0; i < G.numVertexes; i++)
+        visited[i] = FALSE;
+    for (i = 0; i < G.numVertexes; i++)
+        if (!visited[i])
+            DFS(G, i);
+}
+
+void BFSTraverse(MGraph G)
+{
+    int i, j;
+    Queue Q;
+    for (i = 0; i < G.numVertexes; i++)
+        visited[i] = FALSE;
+    InitQueue(&Q);
+    for (i = 0; i < G.numVertexes; i++)
+    {
+        if (!visited[i])
+        {
+            visited[i] = TRUE;
+            printf("%c ", G.vexs[i]);
+            EnQueue(&Q, i);
+            while (!QueueEmpty(Q))
+            {
+                DeQueue(&Q, &i);
+                for (j = 0; j < G.numVertexes; j++)
+                {
+                    if (G.arc[i][j] == 1 && !visited[j])
+                    {
+                        visited[j] = TRUE;
+                        printf("%c ", G.vexs[j]);
+                        EnQueue(&Q, j);
+                    }
+                }
+            }
+        }
+    }
+}
+
+int main(void)
+{
+    MGraph G;
+    CreateMGraph(&G);
+    printf("\n深度遍历：");
+    DFSTraverse(G);
+    printf("\n广度遍历：");
+    BFSTraverse(G);
+    return 0;
+}
 

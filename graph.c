@@ -73,7 +73,7 @@ void PrintMGraph(Mgraph G)
     }
 }
 
-int main(void)
+int main111(void)
 {
     Mgraph G;
     CreateMGraph(&G);

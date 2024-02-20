@@ -1,4 +1,4 @@
-;
+
 #include "stdio.h"
 #include "stdlib.h"
 
@@ -154,7 +154,7 @@ void MiniSpanTree_Kruskal(MGraph G)
     }
 }
 
-int main(void)
+int main111(void)
 {
     MGraph G;
     CreateMGraph(&G);
