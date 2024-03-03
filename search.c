@@ -11,6 +11,7 @@
 #define MAXSIZE 100
 
 int F[100];
+
 int Sequential_Search(int *a,int n,int k){
     int i;
     for(i = 1;i <= n;i++){
@@ -67,8 +68,8 @@ int Interpolation_Search(int *a,int n,int key){
 int Fibonacci_Search(int *a, int n, int key)
 {
     int low, high, mid, i, k = 0;
-    low = 1; 
-    high = n;
+    low = 1;  
+    high = n; 
     while (n > F[k] - 1)
         k++;
     for (i = n; i < F[k] - 1; i++)
@@ -89,7 +90,7 @@ int Fibonacci_Search(int *a, int n, int key)
         else
         {
             if (mid <= n)
-                return mid; 
+                return mid;
             else
                 return n;
         }
